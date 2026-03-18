@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus | Academic Insights Analytics</title>
+    <!-- Modern Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="glass-card" style="margin: 24px; padding: 24px; display: flex; justify-content: space-between; align-items: center;">
+        <h1 class="gradient-text" style="margin: 0; font-size: 28px;">
+            Nexus <span style="font-weight:300; color:var(--text-muted); font-size: 24px;">| Academic Analytics</span>
+        </h1>
+        <button class="btn" id="refresh-btn">Fetch Latest Data</button>
+    </header>
+
+    <main style="padding: 0 24px;">
+        <div class="glass-card" style="padding: 30px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                <h2 style="margin: 0; font-size: 22px;">Student Risk Overview</h2>
+                <div style="font-size: 14px; color: var(--text-muted);">Predictive models actively monitoring</div>
+            </div>
+            
+            <div style="overflow-x: auto;">
+                <table id="students-table">
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Current Grade</th>
+                            <th>Attendance</th>
+                            <th>AI Risk Score</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="students-body">
+                        <!-- Content populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for GenAI Detailed Insights -->
+    <div id="insight-modal" class="modal">
+        <div class="glass-card modal-content" style="width: 650px; max-width: 90%; padding: 36px; position: relative;">
+            <button id="close-modal-btn" style="position: absolute; right: 24px; top: 24px; background: transparent; border: none; color: var(--text-muted); font-size: 28px; cursor: pointer; transition: color 0.2s;">&times;</button>
+            
+            <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                <h2 id="modal-title" class="gradient-text" style="margin: 0; font-size: 28px;">Insights</h2>
+                <span id="modal-risk-pill" class="pill" style="margin-bottom: 5px;">Risk Level</span>
+            </div>
+            
+            <div style="margin-top: 30px; display: grid; grid-template-columns: 1fr; gap: 24px;">
+                <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 12px; border-left: 4px solid var(--primary);">
+                    <h3 style="color:var(--text-muted); font-size: 13px; text-transform: uppercase; margin-top: 0; margin-bottom: 12px; letter-spacing: 0.05em;">AI Risk Explanation</h3>
+                    <p id="modal-explanation" style="margin: 0; line-height: 1.6; font-size: 15px;"></p>
+                </div>
+                
+                <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 12px; border-left: 4px solid var(--warning);">
+                    <h3 style="color:var(--text-muted); font-size: 13px; text-transform: uppercase; margin-top: 0; margin-bottom: 12px; letter-spacing: 0.05em;">Recommended Interventions</h3>
+                    <p id="modal-recommendation" style="margin: 0; line-height: 1.6; font-size: 15px; white-space: pre-wrap;"></p>
+                </div>
+                
+                <div style="background: rgba(0,0,0,0.2); padding: 20px; border-radius: 12px; border-left: 4px solid var(--success);">
+                    <h3 style="color:var(--text-muted); font-size: 13px; text-transform: uppercase; margin-top: 0; margin-bottom: 12px; letter-spacing: 0.05em;">Synthesized Teacher Notes</h3>
+                    <p id="modal-notes" style="margin: 0; line-height: 1.6; font-size: 15px; font-style: italic;"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Frontend logic injected safely -->
+    <script src="app.js"></script>
+</body>
+</html>
+
